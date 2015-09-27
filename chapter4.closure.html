@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Untitled</title>
+    </head>
+    <body>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <script>
+            var items = document.getElementsByTagName('li');
+            for (var i = 0; i < items.length ; i++) {
+                items[i].onclick = function (event) {
+                    console.log('Wrong way number: ', i);
+                };
+            }
+            for (var i = 0; i < items.length ; i++) {
+                items[i].onclick = function (i) {
+                    return function (event) {
+                        console.log('Right way number: ', i);
+                    };
+                }(i);
+            }
+        </script>
+    </body>
+</html>
